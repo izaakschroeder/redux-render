@@ -6,10 +6,13 @@
   "repository": "izaakschroeder/redux-render",
   "main": "dist/src/index.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/babel -s inline -d dist/src src/"
+    "prepublish": "./node_modules/.bin/babel -s inline -d dist/src src/",
+    "pretest": "npm run prepublish && ./node_modules/.bin/babel -s inline -d dist/test test/",
+    "test": "./node_modules/.bin/mocha dist/test/spec/"
   },
   "dependencies": {
-    "is-promise": "^2.1.0"
+    "is-promise": "^2.1.0",
+    "flux-standard-action": "^0.6.0"
   },
   "peerDependencies": {
     "react-dom": ">=0.14.0",
@@ -17,6 +20,9 @@
     "redux": ">=2.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.23"
+    "babel": "^5.8.23",
+    "mocha": "^2.3.3",
+    "redux": "^3.0.3",
+    "redux-promise": "^0.5.0"
   }
 }
